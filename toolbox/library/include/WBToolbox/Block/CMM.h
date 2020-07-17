@@ -26,6 +26,10 @@ namespace blockfactory {
     } // namespace core
 } // namespace blockfactory
 
+/**
+ * @brief The wbt::CMM class
+ */
+
 class wbt::block::CMM final : public wbt::base::WBBlock
 {
 private:

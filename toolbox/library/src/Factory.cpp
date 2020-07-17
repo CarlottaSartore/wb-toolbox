@@ -82,9 +82,7 @@ SHLIBPP_DEFINE_SHARED_SUBCLASS(MassMatrix, wbt::block::MassMatrix, blockfactory:
 SHLIBPP_DEFINE_SHARED_SUBCLASS(RelativeTransform,
                                wbt::block::RelativeTransform,
                                blockfactory::core::Block)
-SHLIBPP_DEFINE_SHARED_SUBCLASS(CMM,
-                               wbt::block::CMM,
-                               blockfactory::core::Block)
+SHLIBPP_DEFINE_SHARED_SUBCLASS(CMM, wbt::block::CMM, blockfactory::core::Block)
 
 // iCub-dependent blocks
 #ifdef WBT_USES_ICUB

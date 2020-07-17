@@ -62,6 +62,7 @@ CMM::CMM()
 CMM::~CMM() = default;
 
 
+
 bool CMM::configureSizeAndPorts(BlockInformation* blockInfo)
 {
     if (!WBBlock::configureSizeAndPorts(blockInfo)) {
@@ -80,14 +81,13 @@ bool CMM::configureSizeAndPorts(BlockInformation* blockInfo)
     // OUTPUTS
     // =======
     //
-    // 1) Matrix representing the Total Centroidal Momentum Jacobian  (6x(DoFs+6))
+    // 1) Matrix representing the Centroidal Momentum Matrix (6x(DoFs+6)
     //
 
     const bool ok = blockInfo->setPortsInfo(
         {
             // Inputs
             {InputIndex::BasePose, Port::Dimensions{4, 4}, Port::DataType::DOUBLE},
-
             {InputIndex::JointConfiguration, Port::Dimensions{dofs}, Port::DataType::DOUBLE},
         },
         {
@@ -102,6 +102,7 @@ bool CMM::configureSizeAndPorts(BlockInformation* blockInfo)
 
     return true;
 }
+
 
 bool CMM::initialize(BlockInformation* blockInfo)
 {
@@ -171,9 +172,8 @@ bool CMM::output(const BlockInformation* blockInfo)
     // ======
 
     // Compute the CentroidalTotalMomentumMatrix
-   
-    //TODO add check if the computation went well 
-    kinDyn->getCentroidalTotalMomentumJacobian(pImpl->CentroidalTotalMomentumMatrix); 
+    
+    ok = kinDyn->getCentroidalTotalMomentumJacobian(pImpl->CentroidalTotalMomentumMatrix); 
     
     if (!ok) {
         bfError << "Failed to get the Centroidal Total Momentum Matrix .";
@@ -181,13 +181,14 @@ bool CMM::output(const BlockInformation* blockInfo)
     }
 
     // Get the output signal memory location
+    
     OutputSignalPtr output = blockInfo->getOutputPortSignal(OutputIndex::CMM);
+    
     if (!output) {
         bfError << "Output signal not valid.";
         return false;
     }
 
-    //TODO Check 
     // Allocate objects for row-major -> col-major conversion
     Map<MatrixXdiDynTree> CentroidalTotalMomentumMatrixRowMajor = toEigen(pImpl->CentroidalTotalMomentumMatrix);
     Map<MatrixXdSimulink> CentroidalTotalMomentumMatrixColMajor(
