@@ -6,7 +6,7 @@
  * GNU Lesser General Public License v2.1 or any later version.
  */
 
-#include "WBToolbox/Block/CMM.h"
+#include "WBToolbox/Block/CentroidalTotalMomentumMatrix.h"
 #include "WBToolbox/Base/Configuration.h"
 #include "WBToolbox/Base/RobotInterface.h"
 
@@ -40,13 +40,13 @@ enum InputIndex
 
 enum OutputIndex
 {
-    CMM = 0,
+    CentroidalTotalMomentumMatrix = 0,
 };
 
 // BLOCK PIMPL
 // ===========
 
-class CMM::impl
+class CentroidalTotalMomentumMatrix::impl
 {
 public:
     iDynTree::MatrixDynSize CentroidalTotalMomentumMatrix;
@@ -55,15 +55,13 @@ public:
 // BLOCK CLASS
 // ===========
 
-CMM::CMM()
+CentroidalTotalMomentumMatrix::CentroidalTotalMomentumMatrix()
     : pImpl{new impl()}
 {}
 
-CMM::~CMM() = default;
+CentroidalTotalMomentumMatrix::~CentroidalTotalMomentumMatrix() = default;
 
-
-
-bool CMM::configureSizeAndPorts(BlockInformation* blockInfo)
+bool CentroidalTotalMomentumMatrix::configureSizeAndPorts(BlockInformation* blockInfo)
 {
     if (!WBBlock::configureSizeAndPorts(blockInfo)) {
         return false;
@@ -92,7 +90,7 @@ bool CMM::configureSizeAndPorts(BlockInformation* blockInfo)
         },
         {
             // Outputs
-            {OutputIndex::CMM, Port::Dimensions{6, 6 + dofs}, Port::DataType::DOUBLE},
+            {OutputIndex::CentroidalTotalMomentumMatrix, Port::Dimensions{6, 6 + dofs}, Port::DataType::DOUBLE},
         });
 
     if (!ok) {
@@ -103,21 +101,17 @@ bool CMM::configureSizeAndPorts(BlockInformation* blockInfo)
     return true;
 }
 
-
-bool CMM::initialize(BlockInformation* blockInfo)
+bool CentroidalTotalMomentumMatrix::initialize(BlockInformation* blockInfo)
 {
     if (!WBBlock::initialize(blockInfo)) {
         return false;
     }
-
- 
 
     auto kinDyn = getKinDynComputations();
     if (!kinDyn) {
         bfError << "Cannot retrieve handle to KinDynComputations.";
         return false;
     }
-
 
     // Initialize buffers
     // ------------------
@@ -132,12 +126,12 @@ bool CMM::initialize(BlockInformation* blockInfo)
     return true;
 }
 
-bool CMM::terminate(const BlockInformation* blockInfo)
+bool CentroidalTotalMomentumMatrix::terminate(const BlockInformation* blockInfo)
 {
     return WBBlock::terminate(blockInfo);
 }
 
-bool CMM::output(const BlockInformation* blockInfo)
+bool CentroidalTotalMomentumMatrix::output(const BlockInformation* blockInfo)
 {
     using namespace Eigen;
     using MatrixXdSimulink = Matrix<double, Dynamic, Dynamic, Eigen::ColMajor>;
@@ -170,7 +164,6 @@ bool CMM::output(const BlockInformation* blockInfo)
 
     // OUTPUT
     // ======
-
     // Compute the CentroidalTotalMomentumMatrix
     
     ok = kinDyn->getCentroidalTotalMomentumJacobian(pImpl->CentroidalTotalMomentumMatrix); 
@@ -182,7 +175,7 @@ bool CMM::output(const BlockInformation* blockInfo)
 
     // Get the output signal memory location
     
-    OutputSignalPtr output = blockInfo->getOutputPortSignal(OutputIndex::CMM);
+    OutputSignalPtr output = blockInfo->getOutputPortSignal(OutputIndex::CentroidalTotalMomentumMatrix);
     
     if (!output) {
         bfError << "Output signal not valid.";
@@ -193,8 +186,8 @@ bool CMM::output(const BlockInformation* blockInfo)
     Map<MatrixXdiDynTree> CentroidalTotalMomentumMatrixRowMajor = toEigen(pImpl->CentroidalTotalMomentumMatrix);
     Map<MatrixXdSimulink> CentroidalTotalMomentumMatrixColMajor(
         output->getBuffer<double>(),
-        blockInfo->getOutputPortMatrixSize(OutputIndex::CMM).rows,
-        blockInfo->getOutputPortMatrixSize(OutputIndex::CMM).cols);
+        blockInfo->getOutputPortMatrixSize(OutputIndex::CentroidalTotalMomentumMatrix).rows,
+        blockInfo->getOutputPortMatrixSize(OutputIndex::CentroidalTotalMomentumMatrix).cols);
 
     // Forward the buffer to Simulink transforming it to ColMajor
     CentroidalTotalMomentumMatrixColMajor = CentroidalTotalMomentumMatrixRowMajor;
