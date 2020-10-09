@@ -25,7 +25,7 @@ Library {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [0.0, 164.0, 2560.0, 1440.0]
+      Location		      [67.0, 148.0, 2560.0, 1440.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -53,9 +53,9 @@ Library {
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [2522.0, 1199.0]
-	  ZoomFactor		  [5.0]
-	  Offset		  [-1.4290296712109409, -9.7619887730553359]
-	  SceneRectInView	  [-1.4290296712109409, -9.7619887730553359, 504.4, 239.8]
+	  ZoomFactor		  [4.0]
+	  Offset		  [-71.812363004544125, -25.811988773055347]
+	  SceneRectInView	  [-71.812363004544125, -25.811988773055347, 630.5, 299.75]
 	}
 	Object {
 	  $ObjectID		  6
@@ -63,10 +63,10 @@ Library {
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "209"
-	  Extents		  [1793.0, 796.0]
-	  ZoomFactor		  [4.4014962593516209]
-	  Offset		  [66.819263456090653, -7.9237960339943356]
-	  SceneRectInView	  [66.819263456090653, -7.9237960339943356, 407.36147308781869, 180.84759206798867]
+	  Extents		  [2522.0, 1199.0]
+	  ZoomFactor		  [2.5]
+	  Offset		  [-258.01185578242905, -157.8236768561307]
+	  SceneRectInView	  [-258.01185578242905, -157.8236768561307, 1008.8, 479.6]
 	}
 	Object {
 	  $ObjectID		  7
@@ -74,13 +74,24 @@ Library {
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "202"
-	  Extents		  [1793.0, 796.0]
-	  ZoomFactor		  [1.7493744787322769]
-	  Offset		  [213.61276834817875, 115.63518360375741]
-	  SceneRectInView	  [213.61276834817875, 115.63518360375741, 1024.9377830750893, 455.0197854588796]
+	  Extents		  [2522.0, 1199.0]
+	  ZoomFactor		  [2.4606371641733422]
+	  Offset		  [213.61276834817875, 99.508993480891093]
+	  SceneRectInView	  [213.61276834817875, 99.508993480891093, 1024.9377830750893, 487.27216570461223]
 	}
 	Object {
 	  $ObjectID		  8
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "176"
+	  Extents		  [2522.0, 1199.0]
+	  ZoomFactor		  [4.0]
+	  Offset		  [235.1044081864668, 52.222402871604459]
+	  SceneRectInView	  [235.1044081864668, 52.222402871604459, 630.5, 299.75]
+	}
+	Object {
+	  $ObjectID		  9
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -91,7 +102,7 @@ Library {
 	  SceneRectInView	  [-19.500372023809547, -8.00793650793652, 319.04761904761909, 133.17460317460319]
 	}
 	Object {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -102,7 +113,7 @@ Library {
 	  SceneRectInView	  [-20.290375525210067, -11.920168067226882, 337.81512605042013, 141.00840336134453]
 	}
 	Object {
-	  $ObjectID		  10
+	  $ObjectID		  11
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -111,17 +122,6 @@ Library {
 	  ZoomFactor		  [2.3928943762659363]
 	  Offset		  [129.66449864161302, 95.246736292428238]
 	  SceneRectInView	  [129.66449864161302, 95.246736292428238, 839.98692960972426, 350.621409921671]
-	}
-	Object {
-	  $ObjectID		  11
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "176"
-	  Extents		  [2010.0, 839.0]
-	  ZoomFactor		  [3.7963800904977369]
-	  Offset		  [282.14273928755659, 82.081556503198257]
-	  SceneRectInView	  [282.14273928755659, 82.081556503198257, 529.45172824791428, 221.00000000000003]
 	}
 	Object {
 	  $ObjectID		  12
@@ -183,9 +183,9 @@ Library {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "csartore"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jul 22 14:16:21 2020"
-  RTWModifiedTimeStamp	  517328117
-  ModelVersionFormat	  "1.%<AutoIncrement:682>"
+  LastModifiedDate	  "Thu Oct 08 17:42:42 2020"
+  RTWModifiedTimeStamp	  524078665
+  ModelVersionFormat	  "1.%<AutoIncrement:683>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "all"
@@ -1239,7 +1239,7 @@ Library {
   }
   System {
     Name		    "WBToolboxLibrary_repository"
-    Location		    [0, 164, 2560, 1604]
+    Location		    [67, 148, 2627, 1588]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1254,7 +1254,7 @@ Library {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "500"
+    ZoomFactor		    "400"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "1852"
     SimulinkSubDomain	    "Simulink"
@@ -1856,7 +1856,7 @@ Library {
       }
       System {
 	Name			"Model"
-	Location		[271, 377, 2102, 1414]
+	Location		[67, 148, 2627, 1588]
 	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
@@ -1871,7 +1871,7 @@ Library {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"440"
+	ZoomFactor		"250"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  SubSystem
@@ -2724,7 +2724,7 @@ Library {
 	  }
 	  System {
 	    Name		    "Jacobians"
-	    Location		    [271, 377, 2102, 1414]
+	    Location		    [67, 148, 2627, 1588]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
 	    SetExecutionDomain	    off
@@ -2739,7 +2739,7 @@ Library {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "175"
+	    ZoomFactor		    "246"
 	    SimulinkSubDomain	    "Simulink"
 	    Block {
 	      BlockType		      S-Function
@@ -2749,7 +2749,7 @@ Library {
 	      Position		      [805, 171, 1075, 264]
 	      ZOrder		      70
 	      FunctionName	      "BlockFactory"
-	      Parameters	      "'CMM', 'WBToolbox', WBTConfigParameters, configBlockAbsName"
+	      Parameters	      "'CentroidalTotalMomentumMatrix', 'WBToolbox', WBTConfigParameters, configBlockAbsName"
 	      SFunctionDeploymentMode off
 	      EnableBusSupport	      off
 	      SFcnIsStateOwnerBlock   off
@@ -3170,7 +3170,7 @@ Library {
 	  }
 	  System {
 	    Name		    "Kinematics"
-	    Location		    [0, 0, 2048, 1080]
+	    Location		    [67, 148, 2627, 1588]
 	    Open		    off
 	    PortBlocksUseCompactNotation off
 	    SetExecutionDomain	    off
@@ -3185,7 +3185,7 @@ Library {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "380"
+	    ZoomFactor		    "400"
 	    SimulinkSubDomain	    "Simulink"
 	    Block {
 	      BlockType		      SubSystem
